@@ -20,9 +20,11 @@
     <script type="text/javascript">
 
       var deviceID    = "55ff6d065075555315131787";
-      var accessToken = "51527695cb8e07ea6c8858efa85011a8bfe594a5";
-      var setFunc = "led";
-      
+      var accessToken = "51527695cb8e07ea6c8858efa85011a8bfe594a5";//
+                        //"51527695cb8e07ea6c8858efa85011a8bfe594a5";
+      //var setFunc = "led";
+      var setFunc = "analogWrite"
+
       var thrust = 0;
       var clicks1 = 0;
       var clicks2 = 0;
@@ -138,6 +140,17 @@
         var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
         $.post( requestURL, { params: paramStr, access_token: accessToken });
       }
+
+      function analogWrite(newValue) {
+        var paramStr = "A0";// + newValue.toString();
+        if ((newValue <=100) && (newValue >= 0)) { 
+          paramStr = paramStr + newValue.toString();
+        } 
+
+        var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
+        $.post( requestURL, { params: paramStr, access_token: accessToken });
+      }
+ 
 
       function updateTime() {
         var currentTime = new Date();
