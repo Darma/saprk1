@@ -23,10 +23,26 @@
       var accessToken = "51527695cb8e07ea6c8858efa85011a8bfe594a5";
       var setFunc = "led";
       
+      var thrust = 0;
       var clicks1 = 0;
       var clicks2 = 0;
       var clicks3 = 0;
       var clicks4 = 0;
+
+      function thrustINC(){
+        if (thrust < 100) {
+          thrust +=1;
+          document.getElementById("clicks1").innerHTML = thrust;
+        }
+      }
+
+      function thrustDEC(){
+        if (thrust > 0) {
+          thrust -=1;
+          document.getElementById("clicks1").innerHTML = thrust;
+        }
+      }
+
 
       function onClick1() {
         if (clicks1 < 100) { 
@@ -69,19 +85,23 @@
         switch (evt.keyCode) {
           case 37:
             switchLED(1,1);
-            onClick1();
+            //onClick1();
+            thrustDEC();
             break;
           case 39:
             switchLED(1,0);
-            onClick2();
+            //onClick2();
+            thrustINC();
             break;
           case 38:
             switchLED(2,1);
-            onClick3();
+            //onClick3();
+            thrustINC();
             break;
           case 40:
             switchLED(2,0);
-            onClick4();
+            //onClick4();
+            thrustDEC();
             break;
         }
       };
