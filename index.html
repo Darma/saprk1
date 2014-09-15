@@ -31,22 +31,26 @@
 
       function thrustINC(){
         if (thrust < 100) {
-          thrust +=1;
+          thrust += 1;
           document.getElementById("clicks1").innerHTML = thrust;
+        } else {
+            alert("Over 100!");
         }
       };
 
       function thrustDEC(){
         if (thrust > 0) {
-          thrust -=1;
+          thrust -= 1;
           document.getElementById("clicks1").innerHTML = thrust;
+        } else {
+            alert("Over 100!");
         }
       };
 
 
       function onClick1() {
-        if (clicks1 < 100) { 
-          clicks1 += 1;
+        if (clicks1 > 0) { 
+          clicks1 -= 1;
           document.getElementById("clicks1").innerHTML = clicks1;
         } else {
             alert("Over 100!");
@@ -54,16 +58,16 @@
       };
 
       function onClick2() {
-        if (clicks2 < 100) {
-          clicks2 += 1;
-          document.getElementById("clicks2").innerHTML = clicks2;
+        if (clicks1 < 100) {
+          clicks1 += 1;
+          document.getElementById("clicks1").innerHTML = clicks1;
         } else {
             alert("Over 100!")
         }
       };
 
       function onClick3() {
-        if (clicks3 < 100) {
+        if (clicks3 > 0) {
           clicks3 += 1;
           document.getElementById("clicks3").innerHTML = clicks3;
         } else{  
@@ -72,9 +76,9 @@
       };
 
       function onClick4() {
-        if (clicks4 < 100) {
-          clicks4 += 1;
-          document.getElementById("clicks4").innerHTML = clicks4;
+        if (clicks3 < 100) {
+          clicks3 += 1;
+          document.getElementById("clicks3").innerHTML = clicks3;
         } else {
           alert("Over 100!")
         }
@@ -85,22 +89,22 @@
         switch (evt.keyCode) {
           case 37:
             switchLED(1,1);
-            //onClick1();
+            onClick1();
             thrustDEC();
             break;
           case 39:
             switchLED(1,0);
-            //onClick2();
+            onClick2();
             thrustINC();
             break;
           case 38:
             switchLED(2,1);
-            //onClick3();
+            onClick3();
             thrustINC();
             break;
           case 40:
             switchLED(2,0);
-            //onClick4();
+            onClick4();
             thrustDEC();
             break;
         }
