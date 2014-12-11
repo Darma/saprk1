@@ -25,6 +25,9 @@
                         //"51527695cb8e07ea6c8858efa85011a8bfe594a5";
       //var setFunc = "led";
       var setFunc = "analogwrite"
+      
+      var maxVal = 240;
+      var incStep = 8;
 
       var thrust = 0;
       var clicks1 = 0;
@@ -33,7 +36,7 @@
       var clicks4 = 0;
 
       function thrustINC(){
-        if (thrust < 200) {
+        if (thrust < maxVal) {
           thrust += 8;
           document.getElementById("clicks1").innerHTML = thrust;
         } else {
@@ -61,8 +64,8 @@
       };
 
       function onClick2() {
-        if (clicks1 < 100) {
-          clicks1 += 1;
+        if (clicks1 < maxVal) {
+          clicks1 += incStep;
           document.getElementById("clicks1").innerHTML = clicks1;
         } else {
             alert("Over 100!")
@@ -71,7 +74,7 @@
 
       function onClick3() {
         if (clicks3 > 0) {
-          clicks3 -= 1;
+          clicks3 -= incStep;
           document.getElementById("clicks3").innerHTML = clicks3;
         } else{  
   
@@ -79,8 +82,8 @@
       };
 
       function onClick4() {
-        if (clicks3 < 100) {
-          clicks3 += 1;
+        if (clicks3 < maxVal) {
+          clicks3 += incStep;
           document.getElementById("clicks3").innerHTML = clicks3;
         } else {
           alert("Over 100!")
@@ -149,7 +152,7 @@
       function analogWrite(newValue) {
         //"A1," no parameter
         var paramStr = "";// + newValue.toString();
-        if ((newValue <=100) && (newValue >= 0)) { 
+        if ((newValue <= maxVal) && (newValue >= 0)) { 
           paramStr = paramStr + newValue.toString();
         } 
 
