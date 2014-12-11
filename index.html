@@ -34,7 +34,7 @@
 
       function thrustINC(){
         if (thrust < 200) {
-          thrust += 1;
+          thrust += 8;
           document.getElementById("clicks1").innerHTML = thrust;
         } else {
             alert("Over 100!");
@@ -43,7 +43,7 @@
 
       function thrustDEC(){
         if (thrust > 0) {
-          thrust -= 1;
+          thrust -= 8;
           document.getElementById("clicks1").innerHTML = thrust;
         } else {
             
@@ -147,7 +147,8 @@
       }
 
       function analogWrite(newValue) {
-        var paramStr = "A1,";// + newValue.toString();
+        //"A1," no parameter
+        var paramStr = "";// + newValue.toString();
         if ((newValue <=100) && (newValue >= 0)) { 
           paramStr = paramStr + newValue.toString();
         } 
